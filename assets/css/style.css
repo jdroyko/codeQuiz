@@ -1,0 +1,38 @@
+#nav {
+display:block
+margin: 5px;
+padding: 35px;
+}
+
+/* places high score on the top left side of the nav*/
+.score{
+    float:left;
+}
+
+a{
+    color: rgb(49, 91, 230);
+    text-decoration: none;
+    
+}
+/*places time remaining on the right side of the nav*/
+.time{
+  float: right;
+}
+
+/*Manipulates the body of the html */
+body{ 
+    text-align: center;
+} 
+
+
+/*manipulates the button */
+button{
+    border: solid;
+    background-color: green;
+    color: white;
+    font-size: 20px;
+}
+
+button:hover{
+    background-color:greenyellow;
+}
