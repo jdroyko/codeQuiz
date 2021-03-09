@@ -64,6 +64,12 @@ var questions = [//write more questions here
         choices: ["String", "Number", "Boolean"],
         answer: "String"
             },
+      {
+        question: "How do you make an html interactive",
+        choices: ["CSS", "JavaScript", "JSON"],
+        answer: "Javascript"
+            },
+    
 ];
 
 //Loops through the questions
@@ -122,10 +128,10 @@ function endGame (){
     clearInterval(timer);
 
     var quizContent = `
-    <h1>Game over!</h1>
-    <h3>Your score is` + score +  `!</h3>
+    <h1>Your Code Quiz Result:</h1>
+    <h3>Your score is ` + score +  `!</h3>
     <input type="text" id="name" placeholder="First name"> 
-    <button onclick="setScore()">Set score!</button>`;
+    <button onclick="saveScore()">Save score!</button>`;
 
     document.getElementById("quiz").innerHTML = quizContent;
 }
