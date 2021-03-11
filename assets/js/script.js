@@ -132,6 +132,7 @@ function saveScore() {
 function getScore() {
     var content =
         localStorage.getItem("highScoreName") + " scored " + localStorage.getItem("highScore");
+      //Should there be a restart button after?
 
     document.getElementById("quiz").innerHTML = content;
 }
