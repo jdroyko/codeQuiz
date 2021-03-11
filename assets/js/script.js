@@ -11,7 +11,8 @@ WHEN I click the start button
 THEN a timer starts and I am presented with a question*/
 
 function start() {
-
+    document.getElementById('btn').style.display = "none";
+    document.getElementById('start-play').style.display = "none";
     timeLeft = 60;
     document.getElementById("timeLeft").innerHTML = timeLeft;
     var timer = setInterval(function () {
@@ -22,11 +23,9 @@ function start() {
             clearInterval(timer);
             endGame();
         }
-        // document.getElementById('#btn').style.visibility = 'hidden';
     }, 1000);
 
     next();
-    //how to hide the button when the game has started???
 
 }
 
@@ -91,7 +90,8 @@ function next() {
     var content = "<h2>" + questions[currQuestion].question + "</h2>"
 
     for (var buttonLoop = 0; buttonLoop < questions[currQuestion].choices.length; buttonLoop++) {
-        var buttonCode = "<button onclick=\"[ANS]\">[CHOICE]</button>";
+
+        var buttonCode = "<li><button onclick=\"[ANS]\">[CHOICE]</button></li>";
         buttonCode = buttonCode.replace("[CHOICE]", questions[currQuestion].choices[buttonLoop]);
         if (questions[currQuestion].choices[buttonLoop] == questions[currQuestion].answer) {
             buttonCode = buttonCode.replace("[ANS]", "correct()");
@@ -102,7 +102,7 @@ function next() {
     }
 
 
-    document.getElementById("quiz").innerHTML = content;
+    document.getElementById("answer-options").innerHTML = content;
 }
 
 //if player misses a question, time is decreased by 10 seconds -- This Works
@@ -143,7 +143,8 @@ function endGame() {
     var content = `
     <h1>Your Code Quiz Result:</h1>
     <h3>Your score is ` + score + `!</h3>
-    <input type="text" id="name" placeholder="name"> 
-    <button onclick="saveScore()">Save score!</button>;`
+    <input type="text" id="name" placeholder="Enter Intials"> 
+    <button onclick="saveScore()">Submit</button>`
+
     document.getElementById("quiz").innerHTML = content;
 }
