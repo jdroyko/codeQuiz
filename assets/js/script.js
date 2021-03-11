@@ -119,8 +119,11 @@ function correct() {
     next(); // calls on the next question
 }
 
+/*Acceptance Criteria: THEN the game is over
+WHEN the game is over
+THEN I can save my initials and my score*/
 //stores the correct number of scores in the game
-function storeScore() {
+function saveScore() {
     localStorage.setItem("highScore", score);
     localStorage.setItem("highScoreName", document.getElementById('name').value);
     getScore();
@@ -128,12 +131,10 @@ function storeScore() {
 
 function getScore() {
     var content =
-        localStorage.getItem("highScoreName") + localStorage.getItem("highScore");
+        localStorage.getItem("highScoreName") + " scored " + localStorage.getItem("highScore");
 
     document.getElementById("quiz").innerHTML = content;
 }
-
-
 
 // stops timer to end game .. needs work here
 function endGame() {
@@ -143,8 +144,6 @@ function endGame() {
     <h1>Your Code Quiz Result:</h1>
     <h3>Your score is ` + score + `!</h3>
     <input type="text" id="name" placeholder="name"> 
-    <button onclick="saveScore()">Save score!</button>`;
-
+    <button onclick="saveScore()">Save score!</button>;`
     document.getElementById("quiz").innerHTML = content;
 }
-
