@@ -1,13 +1,15 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
 }
+
+/*works on the nav part of the page */
 #nav {
 display:block;
 margin: 5px;
 padding: 35px;
 }
 
-/* places high score on the top left side of the nav*/
+/* places scores on the top left side of the nav*/
 .score{
     float:left;
 }
@@ -32,7 +34,7 @@ body{
 } 
 
 
-/*manipulates the button */
+/*manipulates the buttons, including the answer options */
 button{
     border: solid;
     background-color: purple;
