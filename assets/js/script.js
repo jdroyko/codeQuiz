@@ -130,6 +130,7 @@ function saveScore() {
         "person": document.getElementById('name').value,
         "score": score
     };
+
     var allHighScores = getScore();
     allHighScores.push(entry);
 
@@ -138,21 +139,17 @@ function saveScore() {
 
 //Need help to get more than one score in the game
 function getScore() {
-    // var content =
-    //     localStorage.getItem("highScoreName") + " scored " + localStorage.getItem("highScore");
     var allHighScores =
         JSON.parse(localStorage.getItem("allHighScores"));
     if (!allHighScores) {
         allHighScores = []
     }
     return allHighScores;
-
-    // document.getElementById("quiz").innerHTML = content;
 }
 
 // stops timer to end game
 function endGame() {
-    clearInterval(timer);
+    clearInterval(timeLeft); // why doesn't this work to zero out the time?
 
     var content = `
     <h1>Your Code Quiz Result:</h1>
@@ -163,16 +160,17 @@ function endGame() {
     document.getElementById("quiz").innerHTML = content;
 }
 
+//Submit calls for savescore then gets the score to display High Score list
 function submit() {
     saveScore();
     var getEntry = getScore();
 
-    //Need to create a loop to get the li
+    //Loop to get the names and scores into the high scores
     var content = `
     <h1> High Scores </h1>
     <ul>`;
     for (var i = 0; i < getEntry.length; i++) {
-        content += "<li>" + getEntry[i].person + "</li>";
+        content += "<li>" + getEntry[i].person +" " + getEntry[i].score + "</li>";
     }
     content += "</ul>"
 
