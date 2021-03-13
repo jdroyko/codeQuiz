@@ -2,7 +2,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 #nav {
-display:block
+display:block;
 margin: 5px;
 padding: 35px;
 }
@@ -14,7 +14,7 @@ padding: 35px;
 
 ul{
     list-style-type: none;
-}
+    }
 
 a{
     color: rgb(49, 91, 230);
@@ -35,11 +35,11 @@ body{
 /*manipulates the button */
 button{
     border: solid;
-    background-color: green;
+    background-color: purple;
     color: white;
     font-size: 20px;
 }
 
 button:hover{
-    background-color:greenyellow;
+    background-color: rgb(245, 46, 245);
 }

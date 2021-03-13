@@ -123,20 +123,34 @@ function correct() {
 WHEN the game is over
 THEN I can save my initials and my score*/
 //stores the correct number of scores in the game
+
 function saveScore() {
     localStorage.setItem("highScore", score);
-    localStorage.setItem("highScoreName", document.getElementById('name').value);
-    getScore();
+    var entry = {
+        "person": document.getElementById('name').value,
+        "score": score
+    };
+    var allHighScores = getScore();
+    allHighScores.push(entry);
+
+    localStorage.setItem("allHighScores", JSON.stringify(allHighScores));
 }
 
+//Need help to get more than one score in the game
 function getScore() {
-    var content =
-        localStorage.getItem("highScoreName") + " scored " + localStorage.getItem("highScore");
+    // var content =
+    //     localStorage.getItem("highScoreName") + " scored " + localStorage.getItem("highScore");
+    var allHighScores =
+        JSON.parse(localStorage.getItem("allHighScores"));
+    if (!allHighScores) {
+        allHighScores = []
+    }
+    return allHighScores;
 
-    document.getElementById("quiz").innerHTML = content;
+    // document.getElementById("quiz").innerHTML = content;
 }
 
-// stops timer to end game .. needs work here
+// stops timer to end game
 function endGame() {
     clearInterval(timer);
 
@@ -144,7 +158,23 @@ function endGame() {
     <h1>Your Code Quiz Result:</h1>
     <h3>Your score is ` + score + `!</h3>
     <input type="text" id="name" placeholder="Enter Intials"> 
-    <button onclick="saveScore()">Submit</button>`
+    <button onclick="submit()">Submit</button>`
+
+    document.getElementById("quiz").innerHTML = content;
+}
+
+function submit() {
+    saveScore();
+    var getEntry = getScore();
+
+    //Need to create a loop to get the li
+    var content = `
+    <h1> High Scores </h1>
+    <ul>`;
+    for (var i = 0; i < getEntry.length; i++) {
+        content += "<li>" + getEntry[i].person + "</li>";
+    }
+    content += "</ul>"
 
     document.getElementById("quiz").innerHTML = content;
 }
