@@ -13,14 +13,14 @@ THEN a timer starts and I am presented with a question*/
 function start() {
     document.getElementById('btn').style.display = "none";
     document.getElementById('start-play').style.display = "none";
+
     timeLeft = 60;
     document.getElementById("timeLeft").innerHTML = timeLeft;
-    var timer = setInterval(function () {
+    timer = setInterval(function () {
         timeLeft--;
         document.getElementById("timeLeft").innerHTML = timeLeft;
         //proceed to end game function when timer runs out
         if (timeLeft <= 0) {
-            clearInterval(timer);
             endGame();
         }
     }, 1000);
@@ -148,14 +148,13 @@ function getScore() {
 
 // stops timer to end game
 function endGame() {
-    timeLeft = 0;
-    var content = `
-    <h1>Your Code Quiz Result:</h1>
-    <h3>Your score is ` + score + `!</h3>
-    <input type="text" id="name" placeholder="Enter Intials"> 
-    <button onclick="submit()">Submit</button>`
+    clearInterval(timer);
+    // timeLeft = 0;
+    var endGame = document.getElementById("endgame");
+    endGame.removeAttribute("class");
 
-    document.getElementById("quiz").innerHTML = content;
+    var quizDiv = document.getElementById("quiz");
+    quizDiv.setAttribute("class", "hide");
 }
 
 //Submit calls for savescore then gets the score to display High Score list
@@ -173,10 +172,11 @@ function submit() {
     <h1> High Scores </h1>
     <ul>`;
     for (var i = 0; i < getEntry.length; i++) {
-        content += "<li>" + getEntry[i].person +"   " + getEntry[i].score + "</li>";
+        content += "<li>" + getEntry[i].person + "   " + getEntry[i].score + "</li>";
     }
-    content += "</ul>"
-    
+    content += "</ul>";
+
+
 
     // var repeatButton = document.createElement("button");
     // button.innerHtml = "Play Again!"
@@ -186,6 +186,6 @@ function submit() {
 }
 
 //Clears the highscores stored in the local storage
-function clearScore(){
+function clearScore() {
     localStorage.clear();
 }

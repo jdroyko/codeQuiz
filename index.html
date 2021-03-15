@@ -9,7 +9,8 @@
 	<div id="nav">
 		<!-- view scores link on the top left of nav bar-->
 		<div class="score">
-			<a onclick="submit()" href="#"> <!--This doesn't work-->
+			<a onclick="submit()" href="#">
+				<!--This doesn't work-->
 				<h4>View Highscores</h4>
 			</a>
 		</div>
@@ -28,6 +29,13 @@
 		<ul id="answer-options"></ul>
 		<h2 id="start-play">Press Start to Play</h2>
 	</div>
+	<div id="endgame" class="hide">
+		<h1>Your Code Quiz Result:</h1>
+		<h3>Your score is ` + score + `!</h3>
+		<input type="text" id="name" placeholder="Enter Intials">
+		<button onclick="submit()">Submit</button>
+	</div>
+
 	<!-- Clickable Start Button-->
 	<button onclick="start()" id="btn">Start!</button>
 </body>
