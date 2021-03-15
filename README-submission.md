@@ -2,10 +2,10 @@
 
 The requirements for this homework was to create a Code Quiz without a starter code provided.
 
-The working solution can be found here:
-XXXXXXX
+**The working solution can be found here:
+https://jdroyko.github.io/codeQuiz/**
 
-Started by using the code from Activity 10 of Web API, Speed Reader in order to start utilizing the timer. 
+Started by using the code from Activity 10 of Web API, Speed Reader in order to start utilizing the timer then build the rest of the code from there. 
 
 The User Story is below:
 
@@ -33,6 +33,15 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and my score
 ```
+# Screenshots 
+This is the start screen when the page loads. It has the required elements of a timer and the ability to view high scores. 
+
+![Homescreen](./images/homescreen.png)
+
+
+
 
 # Sources
 *How to make a simple Javascript Quiz* https://simplestepscode.com/javascript-quiz-tutorial/#step1
+
+Tutoring from - Professor, TA, and Kris Renaldi (Assigned tutor)

@@ -23,6 +23,7 @@ a{
     text-decoration: none;
     
 }
+
 /*places time remaining on the right side of the nav*/
 .time{
   float: right;
@@ -31,7 +32,7 @@ a{
 /*Manipulates the body of the html */
 body{ 
     text-align: center;
-} 
+    } 
 
 
 /*manipulates the buttons, including the answer options */

@@ -137,7 +137,6 @@ function saveScore() {
     localStorage.setItem("allHighScores", JSON.stringify(allHighScores));
 }
 
-//Need help to get more than one score in the game
 function getScore() {
     var allHighScores =
         JSON.parse(localStorage.getItem("allHighScores"));
@@ -149,8 +148,7 @@ function getScore() {
 
 // stops timer to end game
 function endGame() {
-    clearInterval(timeLeft); // why doesn't this work to zero out the time?
-
+    timeLeft = 0;
     var content = `
     <h1>Your Code Quiz Result:</h1>
     <h3>Your score is ` + score + `!</h3>
@@ -166,13 +164,28 @@ function submit() {
     var getEntry = getScore();
 
     //Loop to get the names and scores into the high scores
-    var content = `
+    //The buttons show up but the functions aren't working inside the buttons
+    //When commenting out the document style that shows as error the buttons work 
+    //but not in the way that intended.
+    var content = ` 
+    <button onclick="start()">Play Again!</button> 
+    <button onclick="clearScore()">Clear Highscores</button>
     <h1> High Scores </h1>
     <ul>`;
     for (var i = 0; i < getEntry.length; i++) {
-        content += "<li>" + getEntry[i].person +" " + getEntry[i].score + "</li>";
+        content += "<li>" + getEntry[i].person +"   " + getEntry[i].score + "</li>";
     }
     content += "</ul>"
+    
+
+    // var repeatButton = document.createElement("button");
+    // button.innerHtml = "Play Again!"
+    // repeatButton.addEventListener("click", start());
 
     document.getElementById("quiz").innerHTML = content;
+}
+
+//Clears the highscores stored in the local storage
+function clearScore(){
+    localStorage.clear();
 }
