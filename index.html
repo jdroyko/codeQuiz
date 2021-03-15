@@ -9,7 +9,7 @@
 	<div id="nav">
 		<!-- view scores link on the top left of nav bar-->
 		<div class="score">
-			<a onclick="submit()" href="#">
+			<a id="getScore" href="#">
 				<!--This doesn't work-->
 				<h4>View Highscores</h4>
 			</a>
@@ -28,16 +28,29 @@
 		<h1>Code Quiz!</h1>
 		<ul id="answer-options"></ul>
 		<h2 id="start-play">Press Start to Play</h2>
-	</div>
-	<div id="endgame" class="hide">
-		<h1>Your Code Quiz Result:</h1>
-		<h3>Your score is ` + score + `!</h3>
-		<input type="text" id="name" placeholder="Enter Intials">
-		<button onclick="submit()">Submit</button>
+		<!-- Clickable Start Button-->
+		<button onclick="start()" id="btn">Start!</button>
 	</div>
 
-	<!-- Clickable Start Button-->
-	<button onclick="start()" id="btn">Start!</button>
+
+
+	<!-- End Game Screen-->
+	<div id="endgame" class="hide">
+		<h1>Your Code Quiz Result:</h1>
+		<h3>Your score is <span id="final-score"></span>!</h3>
+		<input type="text" id="name" placeholder="Enter Intials">
+		<button id="submit">Submit</button>
+	</div>
+
+	<!-- High Scores Screen-->
+	<div id="scores" class="hide">
+		<h1> High Scores</h1>
+		<ul id="highscores"></ul>
+		<button id="clearScore"> Clear Scores</button>
+		<button id="restart"> Restart</button>
+	</div>
+
+
 </body>
 <script src="./assets/js/script.js" type="text/javascript"></script>
 

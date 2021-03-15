@@ -25,6 +25,7 @@ function start() {
         }
     }, 1000);
 
+    currQuestion = -1;
     next();
 
 }
@@ -125,28 +126,38 @@ THEN I can save my initials and my score*/
 //stores the correct number of scores in the game
 
 function saveScore() {
-    localStorage.setItem("highScore", score);
+    var initials = document.getElementById("name").value.trim();
+    if (initials !== "") {
+        var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+    }
+
     var entry = {
-        "person": document.getElementById('name').value,
-        "score": score
+        initials: initials,
+        score: score
     };
 
-    var allHighScores = getScore();
-    allHighScores.push(entry);
+    highscores.push(entry);
 
-    localStorage.setItem("allHighScores", JSON.stringify(allHighScores));
+    localStorage.setItem("highscores", JSON.stringify(highscores));
+
 }
 
 function getScore() {
-    var allHighScores =
-        JSON.parse(localStorage.getItem("allHighScores"));
-    if (!allHighScores) {
-        allHighScores = []
-    }
-    return allHighScores;
+    document.getElementById("scores").removeAttribute("class");
+    var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+
+    highscores.sort(function (a, b) { return b.score - a.score });
+
+    highscores.forEach(score => {
+        var scoreListItem = document.createElement("li");
+        scoreListItem.textContent = score.initials + " " + score.score;
+        var scoreList = document.getElementById("highscores");
+        scoreList.appendChild(scoreListItem);
+    });
+
 }
 
-// stops timer to end game
+
 function endGame() {
     clearInterval(timer);
     // timeLeft = 0;
@@ -155,37 +166,39 @@ function endGame() {
 
     var quizDiv = document.getElementById("quiz");
     quizDiv.setAttribute("class", "hide");
+
+    var finalScore = document.getElementById("final-score");
+    finalScore.textContent = score
 }
 
-//Submit calls for savescore then gets the score to display High Score list
-function submit() {
-    saveScore();
-    var getEntry = getScore();
-
-    //Loop to get the names and scores into the high scores
-    //The buttons show up but the functions aren't working inside the buttons
-    //When commenting out the document style that shows as error the buttons work 
-    //but not in the way that intended.
-    var content = ` 
-    <button onclick="start()">Play Again!</button> 
-    <button onclick="clearScore()">Clear Highscores</button>
-    <h1> High Scores </h1>
-    <ul>`;
-    for (var i = 0; i < getEntry.length; i++) {
-        content += "<li>" + getEntry[i].person + "   " + getEntry[i].score + "</li>";
-    }
-    content += "</ul>";
-
-
-
-    // var repeatButton = document.createElement("button");
-    // button.innerHtml = "Play Again!"
-    // repeatButton.addEventListener("click", start());
-
-    document.getElementById("quiz").innerHTML = content;
-}
 
 //Clears the highscores stored in the local storage
-function clearScore() {
+var clearScores = document.getElementById("clearScore");
+clearScores.addEventListener("click", function () {
     localStorage.clear();
-}
+});
+
+//Makes submit button function 
+var submitbtn = document.getElementById("submit");
+submitbtn.addEventListener("click", function () {
+    saveScore();
+    getScore();
+});
+
+//Gets highscores
+var getScores = document.getElementById("getScore");
+getScores.addEventListener("click", function () {
+    getScore();
+    var quizDiv = document.getElementById("quiz");
+    quizDiv.setAttribute("class", "hide");
+});
+
+//Restarts Game 
+var restart = document.getElementById("restart");
+restart.addEventListener("click", function () {
+    start();
+    var restartQuiz = document.getElementById("quiz");
+    restartQuiz.removeAttribute("class");
+    var hideScores = document.getElementById("scores");
+    hideScores.setAttribute("class", "hide");
+});
