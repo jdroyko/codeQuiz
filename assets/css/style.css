@@ -34,6 +34,7 @@ body{
     text-align: center;
     } 
 
+/*hides certain divs until needed to show */
 .hide{
 display: none;
 }

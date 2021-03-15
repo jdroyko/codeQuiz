@@ -1,11 +1,14 @@
-# Task
+# Code Quiz Homework 4
 
 The requirements for this homework was to create a Code Quiz without a starter code provided.
 
-**The working solution can be found here:
-https://jdroyko.github.io/codeQuiz/**
+** The working solution can be found here:
+https://jdroyko.github.io/codeQuiz/ **
 
 Started by using the code from Activity 10 of Web API, Speed Reader in order to start utilizing the timer then build the rest of the code from there. 
+
+Every correct answer is 10 points,
+every incorrect response takes away 10 seconds.
 
 The User Story is below:
 
@@ -38,8 +41,13 @@ This is the start screen when the page loads. It has the required elements of a 
 
 ![Homescreen](./images/homescreen.png)
 
+I utilized hiding and showing the divs a lot in order to manipulate the screen in the CSS function then calling the divs in JavaScript.
 
+![Hidecss](./images/hideDivs.png)
 
+In JavaScript I hide and show the divs as required for what is going on in the page as an example:
+
+![javahideshow](./images/hideshow.png)
 
 # Sources
 *How to make a simple Javascript Quiz* https://simplestepscode.com/javascript-quiz-tutorial/#step1

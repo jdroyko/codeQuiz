@@ -70,7 +70,16 @@ var questions = [
         choices: ["CSS", "JavaScript", "JSON"],
         answer: "Javascript"
     },
-
+    {
+        question: "What does API stand for?",
+        choices: ["Application Programming Interface", "JavaScript Object Notation", "It doesn't stand for anything."],
+        answer: "Application Programming Interface"
+    },
+    {
+        question: "How would you call for Not a Number?",
+        choices: ["!=number", "NaN", "not ANumber"],
+        answer: "NaN"
+    },
 ];
 
 //Loops through the questions
@@ -201,4 +210,6 @@ restart.addEventListener("click", function () {
     restartQuiz.removeAttribute("class");
     var hideScores = document.getElementById("scores");
     hideScores.setAttribute("class", "hide");
+    var hideEndGame = document.getElementById("endgame");
+    hideEndGame.setAttribute("class", "hide");
 });
