@@ -39,15 +39,15 @@ THEN I can save my initials and my score
 # Screenshots 
 This is the start screen when the page loads. It has the required elements of a timer and the ability to view high scores. 
 
-![Homescreen](./images/homescreen.png)
+![Homescreen](./images/homescreen.PNG)
 
 I utilized hiding and showing the divs in various places to manipulate the screen in the CSS function then calling the divs in JavaScript.
 
-![Hidecss](./images/hideDivs.png)
+![Hidecss](./images/hideDivs.PNG)
 
 In JavaScript I hide and show the divs as required for what is going on in the page as an example:
 
-![javahideshow](./images/hideshow.png)
+![javahideshow](./images/hideshow.PNG)
 
 # Sources
 *How to make a simple Javascript Quiz* https://simplestepscode.com/javascript-quiz-tutorial/#step1
