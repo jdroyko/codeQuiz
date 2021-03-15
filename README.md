@@ -41,7 +41,7 @@ This is the start screen when the page loads. It has the required elements of a 
 
 ![Homescreen](./images/homescreen.png)
 
-I utilized hiding and showing the divs a lot in order to manipulate the screen in the CSS function then calling the divs in JavaScript.
+I utilized hiding and showing the divs in various places to manipulate the screen in the CSS function then calling the divs in JavaScript.
 
 ![Hidecss](./images/hideDivs.png)
 
@@ -51,5 +51,7 @@ In JavaScript I hide and show the divs as required for what is going on in the p
 
 # Sources
 *How to make a simple Javascript Quiz* https://simplestepscode.com/javascript-quiz-tutorial/#step1
+
+*Simple JavaScript Quiz* https://www.sitepoint.com/simple-javascript-quiz/
 
 Tutoring from - Professor, TA, and Kris Renaldi (Assigned tutor)
